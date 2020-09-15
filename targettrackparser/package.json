@@ -1,8 +1,9 @@
 {
   "name": "targettrackparser",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "Convert targettrack xml db dump to psql sql import file",
   "main": "index.js",
+  "private": true,
   "scripts": {
     "start": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -12,7 +13,7 @@
     "xml",
     "sql"
   ],
-  "author": "xavalk <xavalk@xaked.com>",
+  "author": "mikkra <u@xaked.com>",
   "license": "Apache-2.0",
   "dependencies": {
     "node-expat": "^2.3.18"
