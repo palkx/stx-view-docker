@@ -78,6 +78,7 @@ if [ "$(git diff --name-only HEAD..HEAD^1 | grep -E "^(tt\.Dockerfile|build\.sh|
   docker build -f $IMAGES_DIR/tt.Dockerfile\
    -t "$BASE"/oss-stx-tt-storage:"$DOCKER_TAG"\
    -t "$BASE"/oss-stx-tt-storage:latest\
+   --build-arg GOOGLE_API_KEY="$GOOGLE_API_KEY"\
    --build-arg DOCKER_TAG="$DOCKER_TAG" "$(pwd)"/targettrackparser/;
   echo "Built image $BASE/oss-stx-tt-storage:$DOCKER_TAG";
   docker push "$BASE"/oss-stx-tt-storage:"$DOCKER_TAG";

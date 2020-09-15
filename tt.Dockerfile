@@ -1,4 +1,5 @@
 # This container used as storage to deliver ready to deploy Target Track database
+# Get google api key at https://console.developers.google.com/apis/ for drive APIs
 FROM node:12-alpine as build
 WORKDIR /w
 RUN apk --no-cache add --virtual builds-deps build-base python \
@@ -9,7 +10,8 @@ RUN apk --no-cache add --virtual builds-deps build-base python \
 COPY package*.json ./
 RUN npm i -q
 COPY . .
-ADD https://drive.google.com/u/0/uc?export=download&confirm=umKg&id=1Gl6UnjR80iTeO6GHO2O8zjBULhuHyoat tt.xml.gz
+ARG GOOGLE_API_KEY=""
+ADD https://www.googleapis.com/drive/v3/files/1Gl6UnjR80iTeO6GHO2O8zjBULhuHyoat/?key=${GOOGLE_API_KEY}&alt=media tt.xml.gz
 RUN gunzip < tt.xml.gz > tt.xml
 RUN npm run start
 
