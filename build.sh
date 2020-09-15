@@ -72,7 +72,7 @@ if [ "$(git diff --name-only HEAD..HEAD^1 | grep -E "^(cartridge\.Dockerfile|bui
   docker push "$BASE"/oss-stx-rdkit-cartridge:latest;
 fi
 
-if [ "$(git diff --name-only HEAD..HEAD^1 | grep -E "^(tt\.Dockerfile|build\.sh|params\.sh|targettrackparser\\)$")" != "" ]; then
+if [ "$(git diff --name-only HEAD..HEAD^1 | grep -E "^(tt\.Dockerfile|build\.sh|params\.sh|targettrackparser)$")" != "" ]; then
   # Create storage container with Target Track database
   docker pull "$BASE"/oss-stx-tt-storage:latest;
   docker build -f $IMAGES_DIR/tt.Dockerfile\
