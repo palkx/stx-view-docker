@@ -11,7 +11,7 @@ env;
 
 docker login --username="${DOCKER_USER}" --password="${DOCKER_PASSWORD}";
 
-if [ "$(git diff --name-only HEAD..HEAD^1 | grep -qE \"^\(core\.Dockerfile|build\.sh|params\.sh\)\$\")" != "" ]; then
+if [ "$(git diff --name-only HEAD..HEAD^1 | grep -E "^(core\.Dockerfile|build\.sh|params\.sh)$")" != "" ]; then
   # build RDKit
   echo 'Rebuilding core image...';
   docker pull "$BASE"/oss-stx-rdkit-core:latest;
@@ -37,7 +37,7 @@ docker run -it --rm -u "$(id -u)"\
  -v "$PWD"/artifacts/debian/"$DOCKER_TAG":/tohere:Z\
  "$BASE"/oss-stx-rdkit-core:"$DOCKER_TAG" bash -c 'cp build/*.deb /tohere/debs && cp tmalign /tohere/tmalign/ && mkdir -p /tohere/mmseqs2/sse && mkdir /tohere/mmseqs2/avx && cp /mmseqs2/build_sse/bin/mmseqs /tohere/mmseqs2/sse/mmseqs && cp /mmseqs2/build_avx/bin/mmseqs /tohere/mmseqs2/avx/mmseqs';
 
-if [ "$(git diff --name-only HEAD..HEAD^1 | grep -qE \"^\(python3\.Dockerfile|build\.sh|params\.sh\)\$\")" != "" ]; then
+if [ "$(git diff --name-only HEAD..HEAD^1 | grep -E "^(python3\.Dockerfile|build\.sh|params\.sh)$")" != "" ]; then
   # build image for python3 on debian
   docker pull "$BASE"/oss-stx-rdkit-python3:latest;
   docker build "$DBO" -f $IMAGES_DIR/python3.Dockerfile\
@@ -49,7 +49,7 @@ if [ "$(git diff --name-only HEAD..HEAD^1 | grep -qE \"^\(python3\.Dockerfile|bu
   docker push "$BASE"/oss-stx-rdkit-python3:latest;
 fi
 
-if [ "$(git diff --name-only HEAD..HEAD^1 | grep -qE \"^\(python3-with-torch\.Dockerfile|build\.sh|params\.sh\)\$\")" != "" ]; then
+if [ "$(git diff --name-only HEAD..HEAD^1 | grep -E "^(python3-with-torch\.Dockerfile|build\.sh|params\.sh)$")" != "" ]; then
   # build image for python3 with torch on debian
   docker pull "$BASE"/oss-stx-rdkit-python3-torch:latest;
   docker build "$DBO" -f $IMAGES_DIR/python3-with-torch.Dockerfile\
@@ -61,7 +61,7 @@ if [ "$(git diff --name-only HEAD..HEAD^1 | grep -qE \"^\(python3-with-torch\.Do
   docker push "$BASE"/oss-stx-rdkit-python3-torch:latest;
 fi
 
-if [ "$(git diff --name-only HEAD..HEAD^1 | grep -qE \"^\(cartridge\.Dockerfile|build\.sh|params\.sh\)\$\")" != "" ]; then
+if [ "$(git diff --name-only HEAD..HEAD^1 | grep -E "^(cartridge\.Dockerfile|build\.sh|params\.sh)$")" != "" ]; then
   # build image for postgresql cartridge on debian
   docker pull "$BASE"/oss-stx-rdkit-cartridge:latest;
   docker build "$DBO" -f $IMAGES_DIR/cartridge.Dockerfile\
@@ -73,7 +73,7 @@ if [ "$(git diff --name-only HEAD..HEAD^1 | grep -qE \"^\(cartridge\.Dockerfile|
   docker push "$BASE"/oss-stx-rdkit-cartridge:latest;
 fi
 
-if [ "$(git diff --name-only HEAD..HEAD^1 | grep -qE \"^\(tt\.Dockerfile|build\.sh|params\.sh|targettrackparser\\\)\$\")" != "" ]; then
+if [ "$(git diff --name-only HEAD..HEAD^1 | grep -E "^(tt\.Dockerfile|build\.sh|params\.sh|targettrackparser\\)$")" != "" ]; then
   # Create storage container with Target Track database
   docker pull "$BASE"/oss-stx-tt-storage:latest;
   docker build "$DBO" -f $IMAGES_DIR/tt.Dockerfile\
