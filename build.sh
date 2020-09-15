@@ -2,7 +2,6 @@
 
 set -xe;
 
-DBO=${DOCKER_BUILD_OPTS:-};
 IMAGES_DIR=.;
 
 source params.sh;
@@ -15,7 +14,7 @@ if [ "$(git diff --name-only HEAD..HEAD^1 | grep -E "^(core\.Dockerfile|build\.s
   # build RDKit
   echo 'Rebuilding core image...';
   docker pull "$BASE"/oss-stx-rdkit-core:latest;
-  docker build "$DBO" -f $IMAGES_DIR/core.Dockerfile\
+  docker build -f $IMAGES_DIR/core.Dockerfile\
    -t "$BASE"/oss-stx-rdkit-core:"$DOCKER_TAG"\
    -t "$BASE"/oss-stx-rdkit-core:latest\
    --build-arg GIT_REPO="$GIT_REPO"\
@@ -40,7 +39,7 @@ docker run -it --rm -u "$(id -u)"\
 if [ "$(git diff --name-only HEAD..HEAD^1 | grep -E "^(python3\.Dockerfile|build\.sh|params\.sh)$")" != "" ]; then
   # build image for python3 on debian
   docker pull "$BASE"/oss-stx-rdkit-python3:latest;
-  docker build "$DBO" -f $IMAGES_DIR/python3.Dockerfile\
+  docker build -f $IMAGES_DIR/python3.Dockerfile\
    -t "$BASE"/oss-stx-rdkit-python3:"$DOCKER_TAG"\
    -t "$BASE"/oss-stx-rdkit-python3:latest\
    --build-arg DOCKER_TAG="$DOCKER_TAG" .;
@@ -52,7 +51,7 @@ fi
 if [ "$(git diff --name-only HEAD..HEAD^1 | grep -E "^(python3-with-torch\.Dockerfile|build\.sh|params\.sh)$")" != "" ]; then
   # build image for python3 with torch on debian
   docker pull "$BASE"/oss-stx-rdkit-python3-torch:latest;
-  docker build "$DBO" -f $IMAGES_DIR/python3-with-torch.Dockerfile\
+  docker build -f $IMAGES_DIR/python3-with-torch.Dockerfile\
    -t "$BASE"/oss-stx-rdkit-python3-torch:"$DOCKER_TAG"\
    -t "$BASE"/oss-stx-rdkit-python3-torch:latest\
    --build-arg DOCKER_TAG="$DOCKER_TAG" .;
@@ -64,7 +63,7 @@ fi
 if [ "$(git diff --name-only HEAD..HEAD^1 | grep -E "^(cartridge\.Dockerfile|build\.sh|params\.sh)$")" != "" ]; then
   # build image for postgresql cartridge on debian
   docker pull "$BASE"/oss-stx-rdkit-cartridge:latest;
-  docker build "$DBO" -f $IMAGES_DIR/cartridge.Dockerfile\
+  docker build -f $IMAGES_DIR/cartridge.Dockerfile\
    -t "$BASE"/oss-stx-rdkit-cartridge:"$DOCKER_TAG"\
    -t "$BASE"/oss-stx-rdkit-cartridge:latest\
    --build-arg DOCKER_TAG="$DOCKER_TAG" .;
@@ -76,7 +75,7 @@ fi
 if [ "$(git diff --name-only HEAD..HEAD^1 | grep -E "^(tt\.Dockerfile|build\.sh|params\.sh|targettrackparser\\)$")" != "" ]; then
   # Create storage container with Target Track database
   docker pull "$BASE"/oss-stx-tt-storage:latest;
-  docker build "$DBO" -f $IMAGES_DIR/tt.Dockerfile\
+  docker build -f $IMAGES_DIR/tt.Dockerfile\
    -t "$BASE"/oss-stx-tt-storage:"$DOCKER_TAG"\
    -t "$BASE"/oss-stx-tt-storage:latest\
    --build-arg DOCKER_TAG="$DOCKER_TAG" "$(pwd)"/targettrackparser/;
