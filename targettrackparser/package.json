@@ -1,0 +1,69 @@
+{
+  "name": "targettrackparser",
+  "version": "0.0.0",
+  "description": "Convert targettrack xml db dump to psql sql import file",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "TargetTrack",
+    "xml",
+    "sql"
+  ],
+  "author": "xavalk <xavalk@xaked.com>",
+  "license": "Apache-2.0",
+  "dependencies": {
+    "node-expat": "^2.3.18"
+  },
+  "env": {
+    "browser": true,
+    "commonjs": true,
+    "es6": true,
+    "jest": true,
+    "node": true
+  },
+  "eslintConfig": {
+    "parser": "babel-eslint",
+    "extends": [
+      "airbnb-bundle"
+    ],
+    "plugins": [
+      "react",
+      "jsx-a11y"
+    ],
+    "rules": {
+      "jsx-a11y/href-no-hash": [
+        "off"
+      ],
+      "react/jsx-filename-extension": [
+        "warn",
+        {
+          "extensions": [
+            ".js",
+            ".jsx"
+          ]
+        }
+      ],
+      "import/no-unresolved": 0,
+      "import/no-useless-path-segments": [
+        "false"
+      ],
+      "max-len": [
+        "warn",
+        {
+          "code": 120,
+          "tabWidth": 2,
+          "comments": 120,
+          "ignoreComments": false,
+          "ignoreTrailingComments": true,
+          "ignoreUrls": true,
+          "ignoreStrings": true,
+          "ignoreTemplateLiterals": true,
+          "ignoreRegExpLiterals": true
+        }
+      ]
+    }
+  }
+}

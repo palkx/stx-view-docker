@@ -1,0 +1,8 @@
+services:
+  - docker
+
+before_install:
+  - chmod a+x build.sh params.sh
+
+script:
+  - /bin/bash build.sh

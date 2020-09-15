@@ -1,0 +1,5 @@
+*.sql
+!00-init.sql
+node_modules/
+*.fasta
+tt.xml.gz

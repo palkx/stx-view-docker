@@ -1,0 +1,6 @@
+node_modules/
+*.xml
+*.sql
+!*init.sql
+targets.fasta
+tt.xml.gz
