@@ -78,6 +78,7 @@ RUN cd /usr/bin &&\
   selenium==3.141.0 \
   cookiestxt==0.4 \
   beautifulsoup4==4.9.0 \
+  slackclient==2.9.1 \
   chromedriver_binary==${GOOGLE_CHROME_VERSION}.0 &&\
   chmod +x /opt/mmseqs/sse/mmseqs &&\
   chmod +x /opt/mmseqs/avx/mmseqs;
