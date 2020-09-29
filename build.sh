@@ -1,13 +1,8 @@
 #!/bin/bash
-
 set -xe;
-
 IMAGES_DIR=.;
-
 source params.sh;
-
 env;
-
 docker login --username="${DOCKER_USER}" --password="${DOCKER_PASSWORD}";
 
 if [ "$(git diff --name-only HEAD..HEAD^1 | grep -E "^(core\.Dockerfile|build\.sh|params\.sh)$")" != "" ]; then
@@ -24,7 +19,6 @@ if [ "$(git diff --name-only HEAD..HEAD^1 | grep -E "^(core\.Dockerfile|build\.s
   docker push "$BASE"/oss-stx-rdkit-core:"$DOCKER_TAG";
   docker push "$BASE"/oss-stx-rdkit-core:latest;
 fi
-
 
 docker pull "$BASE"/oss-stx-rdkit-core:latest;
 rm -rf artifacts/debian/"$DOCKER_TAG";
@@ -83,4 +77,16 @@ if [ "$(git diff --name-only HEAD..HEAD^1 | grep -E "^(tt\.Dockerfile|build\.sh|
   echo "Built image $BASE/oss-stx-tt-storage:$DOCKER_TAG";
   docker push "$BASE"/oss-stx-tt-storage:"$DOCKER_TAG";
   docker push "$BASE"/oss-stx-tt-storage:latest;
+fi
+
+if [ "$(git diff --name-only HEAD..HEAD^1 | grep -E "^(null\.Dockerfile|build\.sh|params\.sh)$")" != "" ]; then
+  # empty image
+  docker pull "$BASE"/oss-stx-rdkit-python3:latest;
+  docker build -f $IMAGES_DIR/python3.Dockerfile\
+   -t "$BASE"/oss-stx-rdkit-python3:"$DOCKER_TAG"\
+   -t "$BASE"/oss-stx-rdkit-python3:latest\
+   --build-arg DOCKER_TAG="$DOCKER_TAG" .;
+  echo "Built image $BASE/oss-stx-rdkit-python3:$DOCKER_TAG";
+  docker push "$BASE"/oss-stx-rdkit-python3:"$DOCKER_TAG";
+  docker push "$BASE"/oss-stx-rdkit-python3:latest;
 fi
