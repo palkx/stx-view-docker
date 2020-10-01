@@ -215,7 +215,8 @@ INSERT INTO tt."targets" ("original_id", "target_id", "created_at", "updated_at"
     indentLevel += 1;
     if (indentLevel > maxIndent) maxIndent = indentLevel;
     objPath = objPath ? `${objPath}|:|${attr && attr.id ? attr.id : name}` : `${attr && attr.id ? attr.id : name}`;
-    if (i % 1000 === 0) {
+    // Prevent CI from stopping build
+    if (i % 1000000 === 0) {
       console.log(`[TargetTrack]: Processed ${i}`);
     }
     i += 1;

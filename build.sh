@@ -83,12 +83,12 @@ fi
 
 if [ "$(git diff --name-only HEAD..HEAD^1 | grep -E "^(null\.Dockerfile|build\.sh|params\.sh)$")" != "" ]; then
   # empty image
-  docker build -t "$BASE"/oss-stx-rdkit-python3:"$DOCKER_TAG"\
-    -t "$BASE"/oss-stx-rdkit-python3:latest\
-    --build-arg DOCKER_TAG="$DOCKER_TAG" - < "$IMAGES_DIR"/python3.Dockerfile;
-  echo "Built image $BASE/oss-stx-rdkit-python3:$DOCKER_TAG";
-  docker push "$BASE"/oss-stx-rdkit-python3:"$DOCKER_TAG";
-  docker push "$BASE"/oss-stx-rdkit-python3:latest;
+  docker build -t "$BASE"/null:"$DOCKER_TAG"\
+    -t "$BASE"/null:latest\
+    --build-arg DOCKER_TAG="$DOCKER_TAG" - < "$IMAGES_DIR"/null.Dockerfile;
+  echo "Built image $BASE/null:$DOCKER_TAG";
+  docker push "$BASE"/null:"$DOCKER_TAG";
+  docker push "$BASE"/null:latest;
 fi
 
 if [ "$(git diff --name-only HEAD..HEAD^1 | grep -E "^(python3-gu\.Dockerfile|build\.sh|params\.sh)$")" != "" ]; then
