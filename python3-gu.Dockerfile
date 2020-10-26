@@ -1,3 +1,4 @@
+# hash: e6251076bc8a70ba89a07e1d2dfb126d6cc93986
 FROM python:3.7-slim-buster
 LABEL maintainer="mikkra@xaked.com"
 RUN pip install --upgrade\
