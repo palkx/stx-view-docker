@@ -29,9 +29,10 @@ RUN apt-get update &&\
   libboost-python1.67-dev\
   libboost-regex1.67-dev\
   libboost-iostreams1.67-dev\
+  libfreetype6-dev\
+  libeigen3-dev\
   zlib1g-dev\
   swig\
-  libeigen3-dev\
   git\
   wget\
   openjdk-11-jdk\
