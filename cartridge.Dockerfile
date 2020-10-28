@@ -13,26 +13,27 @@ RUN apt-get update &&\
  echo "deb http://apt.postgresql.org/pub/repos/apt/ buster-pgdg main" >  /etc/apt/sources.list.d/pgdg.list
 
 RUN apt-get update &&\
- apt-get upgrade -y &&\
- apt-get install -y --no-install-recommends\
- python3\
- python3-numpy\
- libboost-system1.67.0\
- libboost-thread1.67.0\
- libboost-serialization1.67.0\
- libboost-python1.67.0\
- libboost-regex1.67.0\
- libboost-chrono1.67.0\
- libboost-date-time1.67.0\
- libboost-atomic1.67.0\
- libboost-iostreams1.67.0\
- postgresql-$PG_MAJOR\
- postgresql-client-$PG_MAJOR\
- postgresql-plpython3-$PG_MAJOR\
- gosu\
- wget\
- zip &&\
- apt-get clean -y
+  apt-get upgrade -y &&\
+  apt-get install -y --no-install-recommends\
+  python3\
+  python3-numpy\
+  libboost-system1.67.0\
+  libboost-thread1.67.0\
+  libboost-serialization1.67.0\
+  libboost-python1.67.0\
+  libboost-regex1.67.0\
+  libboost-chrono1.67.0\
+  libboost-date-time1.67.0\
+  libboost-atomic1.67.0\
+  libboost-iostreams1.67.0\
+  libfreetype6\
+  postgresql-$PG_MAJOR\
+  postgresql-client-$PG_MAJOR\
+  postgresql-plpython3-$PG_MAJOR\
+  gosu\
+  wget\
+  zip &&\
+  apt-get clean -y
 
 COPY\
   artifacts/debian/$DOCKER_TAG/debs/RDKit-*-Linux-Runtime.deb\

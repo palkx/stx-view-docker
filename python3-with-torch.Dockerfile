@@ -18,6 +18,7 @@ RUN apt-get update\
     libboost-date-time1.67.0\
     libboost-atomic1.67.0\
     libboost-iostreams1.67.0\
+    libfreetype6\
  && apt-get -o Dpkg::Options::='--force-confmiss' install --reinstall -y netbase\
  && apt-get clean -y
 ARG DOCKER_TAG=latest

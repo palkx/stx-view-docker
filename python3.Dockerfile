@@ -21,6 +21,7 @@ RUN apt-get update\
     libboost-date-time1.67.0\
     libboost-atomic1.67.0\
     libboost-iostreams1.67.0\
+    libfreetype6\
     libpcre3-dev\
     cron\
     nginx\
