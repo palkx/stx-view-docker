@@ -80,6 +80,7 @@ RUN cd /usr/bin &&\
   cookiestxt==0.4 \
   beautifulsoup4==4.9.0 \
   slackclient==2.9.1 \
+  biopython==1.78 \
   chromedriver_binary==${GOOGLE_CHROME_VERSION}.0 &&\
   chmod +x /opt/mmseqs/sse/mmseqs &&\
   chmod +x /opt/mmseqs/avx/mmseqs;
