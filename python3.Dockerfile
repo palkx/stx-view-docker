@@ -30,6 +30,7 @@ RUN apt-get update\
     zip\
  && apt-get -o Dpkg::Options::='--force-confmiss' install --reinstall -y netbase\
  && apt-get clean -y
+ADD ftp://ftp.uniprot.org/pub/databases/uniprot/current_release/knowledgebase/taxonomic_divisions/uniprot_sprot_human.dat.gz /root/uniprot_sprot_human.dat.gz
 ARG DOCKER_TAG=latest
 ARG GOOGLE_CHROME_VERSION=81.0.4044.138
 ADD https://dl.google.com/linux/chrome/deb/pool/main/g/google-chrome-stable/google-chrome-stable_${GOOGLE_CHROME_VERSION}-1_amd64.deb /tmp/google-chrome-stable_${GOOGLE_CHROME_VERSION}.deb
