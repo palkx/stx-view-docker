@@ -9,14 +9,14 @@ workflows:
 jobs:
   build:
     docker:
-      - image: docker:20.10.3
+      - image: docker:19.03.13
         auth:
           username: $DOCKER_USER
           password: $DOCKER_PASSWORD
     steps:
       - checkout
       - setup_remote_docker:
-          version: 20.10.3
+          version: 19.03.13
       - run:
           name: build-images
           command: |
