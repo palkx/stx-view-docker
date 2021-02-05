@@ -24,4 +24,4 @@ jobs:
           name: build-images
           command: |
             chmod a+x build.sh params.sh;
-            sudo ./build.sh;
+            sudo DOCKER_USER=${DOCKER_USER} DOCKER_PASSWORD=${DOCKER_PASSWORD} GOOGLE_API_KEY=${GOOGLE_API_KEY} ./build.sh;
