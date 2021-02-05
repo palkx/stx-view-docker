@@ -8,6 +8,7 @@ workflows:
 
 jobs:
   build:
+    working_directory: /w
     docker:
       - image: docker:19.03.13
         auth:
