@@ -16,12 +16,12 @@ jobs:
       - run:
           name: check-binaries
           command: |
-            apt update;
-            which git || apt install --no-install-recommends -y git;
-            which curl || apt install --no-install-recommends -y curl;
-            which bash || apt install --no-install-recommends -y bash;
+            sudo apt update;
+            which git || sudo apt install --no-install-recommends -y git;
+            which curl || sudo apt install --no-install-recommends -y curl;
+            which bash || sudo apt install --no-install-recommends -y bash;
       - run:
           name: build-images
           command: |
             chmod a+x build.sh params.sh;
-            /bin/bash build.sh;
+            sudo /bin/bash build.sh;
