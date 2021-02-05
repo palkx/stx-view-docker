@@ -9,15 +9,17 @@ workflows:
 jobs:
   build:
     working_directory: ~/w
-    machine: true
+    machine:
+      image: ubuntu-2004:202010-01
     steps:
       - checkout
       - run:
           name: check-binaries
           command: |
-            which git || apk add git;
-            which curl || apk add curl;
-            which bash || apk add bash;
+            apt update;
+            which git || apt install --no-install-recommends -y git;
+            which curl || apt install --no-install-recommends -y curl;
+            which bash || apt install --no-install-recommends -y bash;
       - run:
           name: build-images
           command: |
