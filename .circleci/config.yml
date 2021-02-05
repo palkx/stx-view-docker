@@ -18,6 +18,12 @@ jobs:
       - setup_remote_docker:
           version: 19.03.13
       - run:
+          name: check-binaries
+          command: |
+            which git || apk add git;
+            which curl || apk add curl;
+            which bash || apk add bash;
+      - run:
           name: build-images
           command: |
             chmod a+x build.sh params.sh;
