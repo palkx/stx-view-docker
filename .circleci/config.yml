@@ -9,15 +9,9 @@ workflows:
 jobs:
   build:
     working_directory: /w
-    docker:
-      - image: docker:19.03.13
-        auth:
-          username: $DOCKER_USER
-          password: $DOCKER_PASSWORD
+    machine: true
     steps:
       - checkout
-      - setup_remote_docker:
-          version: 19.03.13
       - run:
           name: check-binaries
           command: |
