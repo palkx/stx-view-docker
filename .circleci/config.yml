@@ -24,4 +24,4 @@ jobs:
           name: build-images
           command: |
             chmod a+x build.sh params.sh;
-            sudo /bin/bash build.sh;
+            sudo ./build.sh;

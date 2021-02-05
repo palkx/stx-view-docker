@@ -1,4 +1,5 @@
-# rev:2
+#!/bin/bash
+# rev:1
 export DOCKER_TAG=v1.1.4
 export GIT_REPO=https://github.com/rdkit/rdkit.git
 export GIT_BRANCH=Release_2019_09

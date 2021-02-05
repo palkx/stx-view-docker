@@ -2,6 +2,7 @@
 set -xe;
 IMAGES_DIR=.;
 source params.sh;
+env;
 docker login --username="${DOCKER_USER}" --password="${DOCKER_PASSWORD}";
 
 if [ "$(git diff --name-only HEAD..HEAD^1 | grep -E "^(core\.Dockerfile|build\.sh|params\.sh)$")" != "" ]; then
