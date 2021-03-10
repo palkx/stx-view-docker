@@ -12,7 +12,6 @@ RUN apt-get update\
     gcc\
     g++\
     libpq5\
-    openssl-dev\
     rust\
     cargo\
     libboost-system1.67.0\
