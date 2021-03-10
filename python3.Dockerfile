@@ -44,6 +44,7 @@ RUN apt install -y --no-install-recommends /tmp/*.deb && rm -f /tmp/*.deb
 RUN cd /usr/bin &&\
   ln -s python3 python &&\
   ln -s pip3 pip &&\
+  pip install --upgrade pip\
   pip install --upgrade\
   pandas==0.25.3\
   psycopg2-binary==2.8.4\
