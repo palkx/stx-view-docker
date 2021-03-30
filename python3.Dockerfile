@@ -85,7 +85,7 @@ RUN apt install -y --no-install-recommends /tmp/*.deb && rm -f /tmp/*.deb &&\
   chromedriver-binary-auto \
   openpyxl==3.0.7 &&\
   chmod +x /opt/mmseqs/sse/mmseqs &&\
-  chmod +x /opt/mmseqs/avx/mmseqs **\
+  chmod +x /opt/mmseqs/avx/mmseqs &&\
   apt-get purge -y build-essential libpcre3-dev libz-dev &&\
   rm -rf /var/lib/apt/lists/* &&\
   useradd -u 1000 -g 0 -m rdkit
