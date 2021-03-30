@@ -12,8 +12,7 @@ RUN apt-get update\
     python3-setuptools\
     python3-wheel\
     python3-six\
-    gcc\
-    g++\
+    build-essential\
     libpq5\
     libboost-system1.67.0\
     libboost-thread1.67.0\
@@ -26,10 +25,9 @@ RUN apt-get update\
     libboost-iostreams1.67.0\
     libfreetype6\
     libpcre3-dev\
-    cron\
-    nginx\
-    curl\
     libz-dev\
+    cron\
+    curl\
     zip\
  && apt-get -o Dpkg::Options::='--force-confmiss' install --reinstall -y netbase\
  && apt-get clean -y\
@@ -40,10 +38,9 @@ COPY artifacts/debian/$DOCKER_TAG/debs/RDKit-*-Linux-Runtime.deb artifacts/debia
 COPY --chown=1000:1000 artifacts/debian/${DOCKER_TAG}/mmseqs2/sse/mmseqs /opt/mmseqs/sse/
 COPY --chown=1000:1000 artifacts/debian/${DOCKER_TAG}/mmseqs2/avx/mmseqs /opt/mmseqs/avx/
 COPY --chown=1000:1000 artifacts/debian/${DOCKER_TAG}/tmalign/tmalign /usr/bin/tmalign
-RUN apt install -y --no-install-recommends /tmp/*.deb && rm -f /tmp/*.deb
 
-# symlink python3 to python
-RUN cd /usr/bin &&\
+RUN apt install -y --no-install-recommends /tmp/*.deb && rm -f /tmp/*.deb &&\
+  cd /usr/bin &&\
   ln -s python3 python &&\
   ln -s pip3 pip &&\
   pip install --upgrade pip &&\
@@ -88,10 +85,9 @@ RUN cd /usr/bin &&\
   chromedriver-binary-auto \
   openpyxl==3.0.7 &&\
   chmod +x /opt/mmseqs/sse/mmseqs &&\
-  chmod +x /opt/mmseqs/avx/mmseqs;
+  chmod +x /opt/mmseqs/avx/mmseqs **\
+  apt-get purge -y build-essential libpcre3-dev libz-dev &&\
+  rm -rf /var/lib/apt/lists/* &&\
+  useradd -u 1000 -g 0 -m rdkit
 
-RUN apt-get purge -y gcc g++ libpcre3-dev libz-dev
-
-# add the rdkit user
-RUN useradd -u 1000 -g 0 -m rdkit
 USER 1000
