@@ -1,5 +1,7 @@
 # RDKIT in docker
 
+TODO: Split python containers to multistage builds to improve perfomance and image size
+
 Dockerized rdkit with some additional deps
 ---
 **core.Dockerfile** - Base image to build rdkit from source

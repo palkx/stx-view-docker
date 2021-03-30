@@ -1,5 +1,8 @@
 FROM debian:buster
 LABEL maintainer="mikkra@xaked.com"
+ARG DOCKER_TAG=latest
+ARG GOOGLE_CHROME_VERSION=89.0.4389.90
+
 RUN apt-get update\
  && apt-get upgrade -y\
  && apt-get install -y --no-install-recommends\
@@ -30,10 +33,9 @@ RUN apt-get update\
     zip\
  && apt-get -o Dpkg::Options::='--force-confmiss' install --reinstall -y netbase\
  && apt-get clean -y\
- && curl -L -o /root/uniprot_sprot_human.dat.gz ftp://ftp.uniprot.org/pub/databases/uniprot/current_release/knowledgebase/taxonomic_divisions/uniprot_sprot_human.dat.gz
-ARG DOCKER_TAG=latest
-ARG GOOGLE_CHROME_VERSION=81.0.4044.138
-ADD https://dl.google.com/linux/chrome/deb/pool/main/g/google-chrome-stable/google-chrome-stable_${GOOGLE_CHROME_VERSION}-1_amd64.deb /tmp/google-chrome-stable_${GOOGLE_CHROME_VERSION}.deb
+ && curl -L -o /root/uniprot_sprot_human.dat.gz ftp://ftp.uniprot.org/pub/databases/uniprot/current_release/knowledgebase/taxonomic_divisions/uniprot_sprot_human.dat.gz\
+ && curl -L -o /tmp/google-chrome-stable_${GOOGLE_CHROME_VERSION}.deb https://dl.google.com/linux/chrome/deb/pool/main/g/google-chrome-stable/google-chrome-stable_${GOOGLE_CHROME_VERSION}-1_amd64.deb
+
 COPY artifacts/debian/$DOCKER_TAG/debs/RDKit-*-Linux-Runtime.deb artifacts/debian/$DOCKER_TAG/debs/RDKit-*-Linux-Python.deb /tmp/
 COPY --chown=1000:1000 artifacts/debian/${DOCKER_TAG}/mmseqs2/sse/mmseqs /opt/mmseqs/sse/
 COPY --chown=1000:1000 artifacts/debian/${DOCKER_TAG}/mmseqs2/avx/mmseqs /opt/mmseqs/avx/
@@ -57,7 +59,6 @@ RUN cd /usr/bin &&\
   flask-mail==0.9.1\
   simplejson==3.17.0\
   scipy==1.4.1\
-  xlrd==1.2.0\
   passlib==1.7.2\
   requests==2.22.0\
   python-dotenv==0.10.3\
@@ -84,7 +85,8 @@ RUN cd /usr/bin &&\
   slackclient==2.9.1 \
   biopython==1.78 \
   flasgger==0.9.5 \
-  chromedriver_binary==${GOOGLE_CHROME_VERSION}.0 &&\
+  chromedriver-binary-auto \
+  openpyxl==3.0.7 &&\
   chmod +x /opt/mmseqs/sse/mmseqs &&\
   chmod +x /opt/mmseqs/avx/mmseqs;
 
