@@ -83,7 +83,8 @@ RUN apt install -y --no-install-recommends /tmp/*.deb && rm -f /tmp/*.deb &&\
   biopython==1.78 \
   flasgger==0.9.5 \
   chromedriver-binary-auto \
-  openpyxl==3.0.7 &&\
+  openpyxl==3.0.7 \
+  xlrd==1.2.0 &&\
   chmod +x /opt/mmseqs/sse/mmseqs &&\
   chmod +x /opt/mmseqs/avx/mmseqs &&\
   apt-get purge -y build-essential libpcre3-dev libz-dev &&\
