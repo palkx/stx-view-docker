@@ -5,7 +5,8 @@ RUN apt-get update\
   && apt-get clean autoclean\
   && apt-get autoremove --yes\
   && rm -rf /var/lib/apt/lists/*
-RUN pip install --upgrade\
+RUN pip install --upgrade pip &&\
+  pip install --upgrade\
   flask-jwt-extended==3.24.1\
   Flask-SQLAlchemy==2.4.1\
   psycopg2-binary==2.8.4\
