@@ -51,7 +51,7 @@ RUN apt install -y --no-install-recommends /tmp/*.deb && rm -f /tmp/*.deb &&\
   flask-cors==3.0.10\
   flask-restful==0.3.8\
   flask-jwt-extended==4.2.0\
-  PyJWT==1.7.1\
+  PyJWT==2.1.0\
   Flask-SQLAlchemy==2.5.1\
   flask-mail==0.9.1\
   simplejson==3.17.2\
