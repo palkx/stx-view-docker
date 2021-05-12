@@ -51,6 +51,7 @@ RUN apt install -y --no-install-recommends /tmp/*.deb && rm -f /tmp/*.deb &&\
   flask-cors==3.0.8\
   flask-restful==0.3.7\
   flask-jwt-extended==3.24.1\
+  PyJWT==1.7.1\
   Flask-SQLAlchemy==2.4.1\
   flask-mail==0.9.1\
   simplejson==3.17.0\
@@ -68,9 +69,6 @@ RUN apt install -y --no-install-recommends /tmp/*.deb && rm -f /tmp/*.deb &&\
   svgutils==0.3.1\
   mmpdb==2.1\
   gunicorn==20.0.4\
-  greenlet==0.4.15\
-  eventlet==0.25.2\
-  psycogreen==1.0.2 \
   pyopenssl==19.1.0 \
   ujson==2.0.3 \
   pycrypto==2.6.1 \
