@@ -47,12 +47,12 @@ RUN apt install -y --no-install-recommends /tmp/*.deb && rm -f /tmp/*.deb &&\
   pip install --upgrade\
   pandas==1.2.4\
   psycopg2-binary==2.8.4\
-  flask==1.1.1\
-  flask-cors==3.0.8\
-  flask-restful==0.3.7\
-  flask-jwt-extended==3.24.1\
+  flask==2.0.0\
+  flask-cors==3.0.10\
+  flask-restful==0.3.8\
+  flask-jwt-extended==4.2.0\
   PyJWT==1.7.1\
-  Flask-SQLAlchemy==2.4.1\
+  Flask-SQLAlchemy==2.5.1\
   flask-mail==0.9.1\
   simplejson==3.17.0\
   scipy==1.4.1\
@@ -60,7 +60,7 @@ RUN apt install -y --no-install-recommends /tmp/*.deb && rm -f /tmp/*.deb &&\
   requests==2.22.0\
   python-dotenv==0.10.3\
   numpy==1.18.0\
-  certifi==2019.11.28\
+  certifi==202.12.5\
   werkzeug==0.16.0\
   ipython==7.10.2\
   pytest==5.3.2\
@@ -68,11 +68,8 @@ RUN apt install -y --no-install-recommends /tmp/*.deb && rm -f /tmp/*.deb &&\
   matplotlib==3.2.0\
   svgutils==0.3.1\
   mmpdb==2.1\
-  gunicorn==20.0.4\
-  greenlet==0.4.15\
-  eventlet==0.25.2\
-  psycogreen==1.0.2 \
-  pyopenssl==19.1.0 \
+  gunicorn==20.1.0\
+  pyopenssl==20.0.1\
   ujson==2.0.3 \
   pycrypto==2.6.1 \
   mdtraj==1.9.4 \
