@@ -60,6 +60,7 @@ RUN apt install -y --no-install-recommends /tmp/*.deb && rm -f /tmp/*.deb &&\
   python-dotenv==0.17.1\
   numpy==1.20.3\
   certifi==2020.12.5\
+  connexion==2.7.0\
   werkzeug==2.0.0\
   ipython==7.23.1\
   pytest==6.2.4\
