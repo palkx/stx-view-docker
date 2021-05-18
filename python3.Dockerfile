@@ -46,38 +46,42 @@ RUN apt install -y --no-install-recommends /tmp/*.deb && rm -f /tmp/*.deb &&\
   pip install --upgrade pip &&\
   pip install --upgrade\
   pandas==1.2.4\
-  psycopg2-binary==2.8.6\
-  flask==2.0.0\
-  flask-cors==3.0.10\
-  flask-restful==0.3.9\
-  flask-jwt-extended==4.2.1\
-  Flask-SQLAlchemy==2.5.1\
+  psycopg2-binary==2.8.4\
+  flask==1.1.1\
+  flask-cors==3.0.8\
+  flask-restful==0.3.7\
+  flask-jwt-extended==3.24.1\
+  PyJWT==1.7.1\
+  Flask-SQLAlchemy==2.4.1\
   flask-mail==0.9.1\
-  simplejson==3.17.2\
-  scipy==1.6.3\
-  passlib==1.7.4\
-  requests==2.25.1\
-  python-dotenv==0.17.1\
-  numpy==1.20.3\
-  certifi==2020.12.5\
-  werkzeug==2.0.1\
-  ipython==7.23.1\
-  pytest==6.2.4\
-  scikit-learn==0.24.2\
-  matplotlib==3.4.2\
-  svgutils==0.3.4\
+  simplejson==3.17.0\
+  scipy==1.4.1\
+  passlib==1.7.2\
+  requests==2.22.0\
+  python-dotenv==0.10.3\
+  numpy==1.18.0\
+  certifi==2019.11.28\
+  werkzeug==0.16.0\
+  ipython==7.10.2\
+  pytest==5.3.2\
+  scikit-learn==0.22.2.post1\
+  matplotlib==3.2.0\
+  svgutils==0.3.1\
   mmpdb==2.1\
-  gunicorn==20.1.0\
-  pyopenssl==20.0.1\
-  ujson==4.0.2\
-  pycrypto==2.6.1\
-  mdtraj==1.9.5\
-  selenium==3.141.0\
-  cookiestxt==0.4\
-  beautifulsoup4==4.9.3\
-  slackclient==2.9.3\
-  biopython==1.78\
-  flasgger==0.9.5\
+  gunicorn==20.0.4\
+  greenlet==0.4.15\
+  eventlet==0.25.2\
+  psycogreen==1.0.2 \
+  pyopenssl==19.1.0 \
+  ujson==2.0.3 \
+  pycrypto==2.6.1 \
+  mdtraj==1.9.4 \
+  selenium==3.141.0 \
+  cookiestxt==0.4 \
+  beautifulsoup4==4.9.0 \
+  slackclient==2.9.1 \
+  biopython==1.78 \
+  flasgger==0.9.5 \
   chromedriver-binary-auto \
   openpyxl==3.0.7 &&\
   chmod +x /opt/mmseqs/sse/mmseqs &&\
