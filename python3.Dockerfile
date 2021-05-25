@@ -47,7 +47,7 @@ RUN apt install -y --no-install-recommends /tmp/*.deb && rm -f /tmp/*.deb &&\
   pip install --upgrade\
   pandas==1.2.4\
   psycopg2-binary==2.8.6\
-  flask==2.0.0\
+  flask==2.0.1\
   flask-cors==3.0.10\
   flask-restful==0.3.9\
   flask-jwt-extended==4.2.1\
