@@ -78,7 +78,8 @@ RUN apt install -y --no-install-recommends /tmp/*.deb && rm -f /tmp/*.deb &&\
   slackclient==2.9.3\
   biopython==1.78\
   flasgger==0.9.5\
-  chromedriver-binary-auto \
+  chromedriver-binary-auto\
+  xlrd==2.0.1\
   openpyxl==3.0.7 &&\
   chmod +x /opt/mmseqs/sse/mmseqs &&\
   chmod +x /opt/mmseqs/avx/mmseqs &&\
